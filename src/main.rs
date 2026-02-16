@@ -14,7 +14,12 @@ struct NothingResponse {
 }
 
 async fn fallback_handler() -> impl IntoResponse {
-    (StatusCode::OK, Json(NothingResponse { result: String::from("nothing") }))
+    (
+        StatusCode::OK,
+        Json(NothingResponse {
+            result: String::from("nothing"),
+        }),
+    )
 }
 
 #[tokio::main]
@@ -34,9 +39,7 @@ async fn main() {
         .expect("Failed to bind to address");
 
     println!("Nothing as a Service listening on http://0.0.0.0:3000");
-    axum::serve(listener, app)
-        .await
-        .expect("Server error");
+    axum::serve(listener, app).await.expect("Server error");
 }
 
 #[cfg(test)]
@@ -125,7 +128,9 @@ mod tests {
             .await
             .unwrap();
 
-        assert!(response.headers().contains_key("access-control-allow-origin"));
+        assert!(response
+            .headers()
+            .contains_key("access-control-allow-origin"));
     }
 
     #[tokio::test]

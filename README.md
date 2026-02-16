@@ -1,5 +1,7 @@
 # naas - Nothing as a Service
 
+[![Tests](https://github.com/rashomon-gh/naas/actions/workflows/test.yml/badge.svg)](https://github.com/rashomon-gh/naas/actions/workflows/test.yml)
+
 Why get anything when you can also opt for nothing in this era of vibe coding and agentic BS?
 
 ## Local Dev
